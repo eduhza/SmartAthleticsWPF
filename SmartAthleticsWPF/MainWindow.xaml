@@ -4,9 +4,391 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartAthleticsWPF"
+        xmlns:views="clr-namespace:SmartAthleticsWPF.Views"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="BioRob Data Acquisition" 
+        Height="700" 
+        Width="1220" 
+        Topmost="False"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
+    <Window.Resources>
+
+        <ImageBrush x:Key="tb_mouse_over"
+                    ImageSource="/Assets/tgBtn_MouseOver.png"/>
+
+        <!--// Text font style //-->
+        <Style x:Key="font_style" TargetType="TextBlock">
+            <!--<Setter Property="FontFamily"
+                    Value="#Arial"/>-->
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+            <Setter Property="Foreground"
+                    Value="White"/>
+            <Setter Property="FontSize"
+                    Value="20"/>
+        </Style>
+
+        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                        <Border  x:Name="border"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 Background="{TemplateBinding Background}"
+                                 SnapsToDevicePixels="True">
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+    </Window.Resources>
+
+
+    <DockPanel LastChildFill="True">
+
+        <!--// Navigation Panel //-->
+        <Grid   x:Name="nav_pnl"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Left"
+                Background="#2E333A"
+                Width="65"
+                DockPanel.Dock="Left" 
+                MouseLeave="Nav_pnl_MouseLeave">
+
+            <StackPanel x:Name="st_pnl">
+                <!--// Grid for the Menu Toggle Button //-->
+                <Grid Height="90">
+                    <!--// Menu title text //-->
+                    <TextBlock  Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="80, 00,0,0"
+                                Text="B I O R O B"
+                                Foreground="White"
+                                FontSize="22"
+                                Background="Transparent"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource font_style}">
+                            
+                            <!--// Shadow Effect //-->
+                        <TextBlock.Effect>
+                            <DropShadowEffect  BlurRadius="10"
+                                                ShadowDepth="1"
+                                                Direction="-45"
+                                                Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <!--// Toggle Button //-->
+                    <ToggleButton x:Name="Tg_Btn"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Margin="8,0,0,0"
+                                      Height="50"
+                                      Width="50"
+                                      BorderThickness="0"
+                                      Style="{StaticResource tb_style}" >
+
+                        <!--// Toggle button default background image //-->
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="Assets/icons8-menu-50.png"
+                                        Stretch="Fill"/>
+                        </ToggleButton.Background>
+
+                        <!--// Toggle Button - Checked, Unchecked events //-->
+                        <ToggleButton.Triggers>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="230" To="65"
+                                                         Duration="0:0:0.4">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="65" To="230"
+                                                         Duration="0:0:0.6">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                        </ToggleButton.Triggers>
+
+                    </ToggleButton>
+
+                </Grid>
+
+
+
+                <Grid Height="60" MouseEnter="ToolTip_MouseEnter">
+                    <Button Command="{Binding UpdateViewCommand}" CommandParameter="LiveGraph" BorderThickness="0">
+                        
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="170"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Assets/icons8-sine-50.png" Margin="13,0,0,0" Height="40" HorizontalAlignment="Left" Grid.Column="0"/>
+                                <TextBlock Text="Live Graph"
+                                           Margin="25,0,0,0" Grid.Column="1"
+                                           Style="{StaticResource font_style}"/>
+                            </Grid>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <ToolTip x:Name="tt_LiveGraph" Content="Live Graph" />
+                        </Button.ToolTip>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#404D5B"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                    </Button>
+                </Grid>
+
+                <Grid Height="60" MouseEnter="ToolTip_MouseEnter">
+                    <Button Command="{Binding UpdateViewCommand}" CommandParameter="Calibration" BorderThickness="0">
+                        
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="170"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Assets/icons8-weight-50.png" Margin="13,0,0,0" Height="40" HorizontalAlignment="Left" Grid.Column="0"/>
+                                <TextBlock Text="Calibration"
+                                           Margin="25,0,0,0" Grid.Column="1"
+                                           Style="{StaticResource font_style}"/>
+                            </Grid>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <ToolTip x:Name="tt_Calibration" Content="Calibration"  />
+                        </Button.ToolTip>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#404D5B"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                    </Button>
+                </Grid>
+
+                <Grid Height="60" MouseEnter="ToolTip_MouseEnter">
+                    <Button Command="{Binding UpdateViewCommand}" CommandParameter="Settings" BorderThickness="0">
+                        
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="170"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Assets/icons8-settings-50.png" Margin="13,0,0,0" Height="40" HorizontalAlignment="Left" Grid.Column="0"/>
+                                <TextBlock Text="Settings"
+                                           Margin="25,0,0,0" Grid.Column="1"
+                                           Style="{StaticResource font_style}"/>
+                            </Grid>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <ToolTip x:Name="tt_Settings" Content="Settings"  />
+                        </Button.ToolTip>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#404D5B"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                    </Button>
+                </Grid>
+
+                <Grid Height="60" MouseEnter="ToolTip_MouseEnter">
+                    <Button Command="{Binding UpdateViewCommand}" CommandParameter="Info" BorderThickness="0">
+                        
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="170"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Assets/icons8-info-50.png" Margin="13,0,0,0" Height="40" HorizontalAlignment="Left" Grid.Column="0"/>
+                                <TextBlock Text="Info"
+                                           Margin="25,0,0,0" Grid.Column="1"
+                                           Style="{StaticResource font_style}"/>
+                            </Grid>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <ToolTip x:Name="tt_Info" Content="Info"  />
+                        </Button.ToolTip>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#404D5B"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                    </Button>
+                </Grid>
+
+            </StackPanel>
+
+
+        </Grid>
+
+        <Grid Background="#523B97"
+              Height="40" 
+              DockPanel.Dock="Top" MouseDown="Grid_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Plataform Data Acquisition" 
+                       Grid.Column="0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       FontSize="22" IsHitTestVisible="False" FontWeight="Regular" FontStyle="Italic" Foreground="White"/>
+
+            <Button Grid.Column="1" 
+                    Width="40" 
+                    Height="40" 
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_1">
+                <Button.Content>
+                    <fa:IconBlock Icon="WindowMinimize"
+                                  Foreground="White"
+                                  FontSize="20"/>
+                </Button.Content>
+            </Button>
+            
+            <Button Grid.Column="2" 
+                    Width="40" 
+                    Height="40" 
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_2">
+                <Button.Content>
+                    <fa:IconBlock Icon="WindowMaximize"
+                                  Foreground="White"
+                                  FontSize="20"/>
+                </Button.Content>
+            </Button>
+
+            <Button Grid.Column="3" 
+                    Width="40"
+                    Height="40" 
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click">
+               
+                <Button.Content>
+                    <fa:IconBlock Icon="WindowClose" 
+                                  Foreground="White"
+                                  FontSize="20"/>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+        <!--<views:LiveGraphView/>-->
+
+        <ContentControl x:Name="ContentArea" Content="{Binding SelectedViewModel}"/>
+
+    </DockPanel>
 </Window>

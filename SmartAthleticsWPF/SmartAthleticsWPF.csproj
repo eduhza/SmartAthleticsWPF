@@ -6,4 +6,51 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\calibration.png" />
+    <None Remove="Assets\email.png" />
+    <None Remove="Assets\icons8-automatic-50.png" />
+    <None Remove="Assets\icons8-info-50.png" />
+    <None Remove="Assets\icons8-mail-contact-50.png" />
+    <None Remove="Assets\icons8-menu-50.png" />
+    <None Remove="Assets\icons8-settings-50.png" />
+    <None Remove="Assets\icons8-sine-50.png" />
+    <None Remove="Assets\icons8-weight-50.png" />
+    <None Remove="Assets\Plot.ico" />
+    <None Remove="Assets\settings.png" />
+    <None Remove="Assets\Sine.png" />
+    <None Remove="Assets\tgBtn_default.png" />
+    <None Remove="Assets\tgBtn_MouseOver.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="5.13.0" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="18.2.0.47" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\icons8-info-50.png" />
+    <Resource Include="Assets\icons8-menu-50.png" />
+    <Resource Include="Assets\icons8-settings-50.png" />
+    <Resource Include="Assets\icons8-sine-50.png" />
+    <Resource Include="Assets\icons8-weight-50.png" />
+    <Resource Include="Assets\tgBtn_default.png" />
+    <Resource Include="Assets\tgBtn_MouseOver.png" />
+  </ItemGroup>
+
 </Project>

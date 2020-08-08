@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9jWKNy/eAb7RvAeoG2e5DCXKT+QkL3dDBgIDrznxbCYRQltVEalIuXyqivr9YQXAbIdi8+uuHxLvFLTkbjeW6A==",
+  "dgSpecHash": "No3hV5tv7x3T6Tt8AIinYjT/LyrhbJcsZVE6yRdmJsWsx3KflhhZlh2N7KLAubTwykfmc0u2z+XXqQ2QQZsLjw==",
   "success": true,
   "projectFilePath": "D:\\BioRob\\Projects\\Platforms\\Software\\SmartAthleticsWPF\\SmartAthleticsWPF\\SmartAthleticsWPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\fontawesome.sharp\\5.13.0\\fontawesome.sharp.5.13.0.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\syncfusion.licensing\\18.2.0.47\\syncfusion.licensing.18.2.0.47.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\syncfusion.sfchart.wpf\\18.2.0.47\\syncfusion.sfchart.wpf.18.2.0.47.nupkg.sha512"
+  ],
   "logs": []
 }

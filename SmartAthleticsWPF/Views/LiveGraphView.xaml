@@ -1,0 +1,386 @@
+﻿<UserControl x:Class="SmartAthleticsWPF.Views.LiveGraphView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartAthleticsWPF.Views" 
+             xmlns:viewmodels="clr-namespace:SmartAthleticsWPF.ViewModels"
+             xmlns:commands="clr-namespace:SmartAthleticsWPF.Commands"
+             xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <viewmodels:LiveGraphViewModel x:Key="LIVviewModel"/>
+        <!--<viewmodels:CalibrationViewModel x:Key="CALviewModel"/>
+        <viewmodels:SettingsViewModel x:Key="SETviewModel"/>
+        <viewmodels:InfoViewModel x:Key="INFviewModel"/>-->
+    </UserControl.Resources>
+
+    <Grid Background="#EDEDED">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.01*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.01*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        
+        <!--LIVE GRAPH BORDER-->
+        <Border Grid.Row="1" Grid.RowSpan="2" 
+                Grid.Column="1" Grid.ColumnSpan="2"
+                Margin="5" 
+                BorderBrush="Black" 
+                BorderThickness="2" 
+                CornerRadius="5"
+                Padding="10,10,30,10"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <DockPanel>
+                <Label Content="Live Graph" 
+                       DockPanel.Dock="Top"
+                       HorizontalAlignment="Center" 
+                       Padding="0,5,0,10" FontSize="22"/>
+
+                <syncfusion:SfChart x:Name="LiveGraphChart" >
+                    <syncfusion:SfChart.PrimaryAxis>
+                        <syncfusion:NumericalAxis Header="Seconds" 
+                                          Maximum="{Binding MaxXAxis}"
+                                          Minimum="{Binding MinXAxis}"/>
+                    </syncfusion:SfChart.PrimaryAxis>
+                    <syncfusion:SfChart.SecondaryAxis>
+                        <syncfusion:NumericalAxis Header="Kgf"/>
+                    </syncfusion:SfChart.SecondaryAxis>
+
+                    <syncfusion:SfChart.Series>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding FyCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="DarkGreen" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False" 
+                                                         IsSeriesVisible="{Binding FyChecked}"/>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding MyCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="LimeGreen" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False" 
+                                                         IsSeriesVisible="{Binding MyChecked}"/>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding FxCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="IndianRed" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False"
+                                                         IsSeriesVisible="{Binding FxChecked}"/>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding MxCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="Red" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False"
+                                                         IsSeriesVisible="{Binding MxChecked}"/>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding FzCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="BlueViolet" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False"
+                                                         IsSeriesVisible="{Binding FzChecked}"/>
+                        <syncfusion:FastLineBitmapSeries ItemsSource="{Binding MzCircularBuffer}" 
+                                                         XBindingPath="XData" YBindingPath="YData" 
+                                                         StrokeThickness="1" Interior="Blue" 
+                                                         ShowTooltip="False" ShowTrackballInfo="False"
+                                                         IsSeriesVisible="{Binding MzChecked}"/>
+                    </syncfusion:SfChart.Series>
+
+                </syncfusion:SfChart>
+            </DockPanel>
+        </Border>
+
+        <!--COP BORDER-->
+        <Border Grid.Row="2"
+                Grid.Column="3"
+                Margin="5" 
+                BorderBrush="Black" 
+                BorderThickness="2" 
+                CornerRadius="5"
+                Padding="10"
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch">
+
+            <DockPanel>
+
+                <Label Content="C O P" 
+                       Grid.Column="0" Grid.ColumnSpan="2"
+                       DockPanel.Dock="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Padding="0,0,0,5"/>
+                
+                <syncfusion:SfChart x:Name="CopChart" 
+                                    VerticalContentAlignment="Stretch" 
+                                    HorizontalAlignment="Center"
+                                    AreaBorderThickness="5"
+                                    AreaBorderBrush="#523B97">
+                    
+                    <syncfusion:SfChart.PrimaryAxis>
+                        <syncfusion:NumericalAxis Minimum="-20" 
+                                                  Maximum="20" 
+                                                  Interval="10" 
+                                                  PlotOffset="5" 
+                                                  BorderThickness="0" 
+                                                  TickLineSize="0"
+                                                  FontSize="12">
+                            <syncfusion:NumericalAxis.AxisLineStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </syncfusion:NumericalAxis.AxisLineStyle>
+                        </syncfusion:NumericalAxis>
+                    </syncfusion:SfChart.PrimaryAxis>
+
+                    <syncfusion:SfChart.SecondaryAxis>
+                        <syncfusion:NumericalAxis Minimum="-30" 
+                                                  Maximum="30" 
+                                                  Interval="10" 
+                                                  PlotOffset="5" 
+                                                  BorderThickness="0" 
+                                                  TickLineSize="0"
+                                                  FontSize="12">
+                            <syncfusion:NumericalAxis.AxisLineStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </syncfusion:NumericalAxis.AxisLineStyle>
+                        </syncfusion:NumericalAxis>
+                        
+                    </syncfusion:SfChart.SecondaryAxis>
+
+                    <syncfusion:SfChart.Annotations>
+                        <syncfusion:LineAnnotation  X1="00"  X2="00"  Y1="-30" Y2="30"  
+                                                    Stroke="DimGray" StrokeThickness="2" StrokeDashArray="4"/>
+                        <syncfusion:LineAnnotation  X1="-20" X2="20"  Y1="00"  Y2="0"   
+                                                    Stroke="DimGray" StrokeThickness="2" StrokeDashArray="4"/>
+                    </syncfusion:SfChart.Annotations>
+                    <syncfusion:SfChart.Series>
+                        <syncfusion:FastScatterBitmapSeries ItemsSource="{Binding COP_DOT}" 
+                                                  XBindingPath="XData" YBindingPath="YData" 
+                                                  Interior="Red" ScatterHeight="20" ScatterWidth="20"/>
+                    </syncfusion:SfChart.Series>
+
+                </syncfusion:SfChart>
+
+            </DockPanel>
+
+            
+        </Border>
+
+        <!--SERIAL BORDER-->
+        <Border Grid.Row="1"
+                Grid.Column="3"
+                Margin="5" 
+                BorderBrush="Black" 
+                BorderThickness="2" 
+                CornerRadius="5"
+                Padding="15,0,15,0"
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Label Content="Conexão" 
+                       Grid.Column="0" Grid.ColumnSpan="2"
+                       DockPanel.Dock="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Padding="0,0,0,5"/>
+
+                <DockPanel Grid.Row="1" Grid.ColumnSpan="2" LastChildFill="True">
+                    <Label Content="Porta COM: "></Label>
+                    <ComboBox Margin="0,0,0,15"></ComboBox>
+                </DockPanel>
+
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connect/Disconnect" HorizontalAlignment="Stretch" Margin="5"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2">
+                    <Label Content="Status: "></Label>
+                    <Label Content="Disconected" Foreground="Red" />
+                </StackPanel>
+
+
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="3"
+              Grid.Column="1" Grid.ColumnSpan="3" 
+              HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <!--SERIAL BORDER-->
+            <Border Grid.Column="0" 
+                    Margin="5" 
+                    BorderBrush="Black" 
+                    BorderThickness="2"
+                    CornerRadius="5"
+                    Padding="20,0,20,0">
+
+            </Border>
+            
+            <!--RECORD BORDER-->
+            <Border Grid.Column="1" 
+                    Margin="5" 
+                    BorderBrush="Black" 
+                    BorderThickness="2"
+                    CornerRadius="5"
+                    Padding="20,0,20,0">
+
+                <Grid Margin="5,10,5,10" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,10"
+                            Content="Click me" Command="{Binding Path=RecordButtonCommand, Source={StaticResource LIVviewModel}}" />
+
+                    <Label Content="Record Time (s):" 
+                           Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="30" Background="White" 
+                               Grid.Column="1" Grid.Row="1" 
+                               VerticalAlignment="Center"/>
+
+                    <Label Content="Name:" 
+                           Grid.Column="0" Grid.Row="2" VerticalAlignment="Center"/>
+                    <TextBlock Text="Subject Name" 
+                           Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
+
+                </Grid>
+            </Border>
+            
+            
+            <!--Informações do Gráfico BORDER-->
+            <Border Grid.Column="2" 
+                    Margin="5" 
+                    BorderBrush="Black" 
+                    BorderThickness="2"
+                    CornerRadius="5"
+                    Padding="10,0,10,0">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Content="Informações do Gráfico" 
+                           Grid.Column="0" Grid.ColumnSpan="6"
+                           HorizontalAlignment="Center"
+                           FontSize="16" FontWeight="Bold" />
+
+                    <CheckBox Content="Fy" 
+                              Grid.Column="0" Grid.Row="1" 
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="DarkGreen"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding FyChecked}" />
+                    <CheckBox Content="My" 
+                              Grid.Column="1" Grid.Row="1"
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="LimeGreen"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding MyChecked}" />
+                    <CheckBox Content="Fx" 
+                              Grid.Column="2" Grid.Row="1"
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="IndianRed"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding FxChecked}" />
+                    <CheckBox Content="Mx" 
+                              Grid.Column="3" Grid.Row="1"
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="Red"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding MxChecked}" />
+                    <CheckBox Content="Fz" 
+                              Grid.Column="4" Grid.Row="1"
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="BlueViolet"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding FzChecked}" />
+                    <CheckBox Content="Mz" 
+                              Grid.Column="5" Grid.Row="1"
+                              FontWeight="ExtraBlack" FontSize="12"
+                              Foreground="Blue"
+                              HorizontalAlignment="Center"
+                              IsChecked="{Binding MzChecked}" />
+
+                    <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" LastChildFill="True" HorizontalAlignment="Stretch">
+                        <Label Content="Periodo: "  VerticalAlignment="Center"/>
+                        <ComboBox Text="30" Background="White"  VerticalAlignment="Center" SelectedIndex="{Binding PeriodSelectedIndex}"> <!--5-->
+                            <ComboBoxItem Content="100 ms" />
+                            <ComboBoxItem Content="500 ms" />
+                            <ComboBoxItem Content="1 s" />
+                            <ComboBoxItem Content="5 s" />
+                            <ComboBoxItem Content="10 s" />
+                            <ComboBoxItem Content="30 s" />
+                        </ComboBox>
+                    </DockPanel>
+
+                    <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" LastChildFill="True" HorizontalAlignment="Stretch">
+                        <Label Content="Amplitude: " VerticalAlignment="Center"/>
+                        <ComboBox Text="30" Background="White" VerticalAlignment="Center" SelectedIndex="{Binding AmplitudeSelectedIndex}"> <!--3-->
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="100"/>
+                            <ComboBoxItem Content="500"/>
+                            <ComboBoxItem Content="1000"/>
+                            <ComboBoxItem Content="5000"/>
+                            <ComboBoxItem Content="10000"/>
+                        </ComboBox>
+                    </DockPanel>
+
+                    <Label Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Content="{Binding PesoKg}" ContentStringFormat="Peso (kg): {0}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <Label Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Content="{Binding PesoNw}" ContentStringFormat="Força (N): {0}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+        
+
+
+    </Grid>
+</UserControl>

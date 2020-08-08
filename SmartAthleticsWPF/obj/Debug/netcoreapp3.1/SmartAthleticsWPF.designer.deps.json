@@ -5,7 +5,57 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "FontAwesome.Sharp/5.13.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "5.13.0.0",
+            "fileVersion": "5.13.0.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/18.2.0.47": {
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "18.2.0.47",
+            "fileVersion": "18.2.0.47"
+          }
+        }
+      },
+      "Syncfusion.SfChart.WPF/18.2.0.47": {
+        "dependencies": {
+          "Syncfusion.Licensing": "18.2.0.47"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.SfChart.WPF.dll": {
+            "assemblyVersion": "18.2310.0.47",
+            "fileVersion": "18.2310.0.47"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "FontAwesome.Sharp/5.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MGB67DmlCWL2yxj66xFc/mn3oXmr8WgmrCa42U/yKuchK9WRzgID4aTJG4pWXGcCHDYJFm4kGcYg37vV2Rp+/w==",
+      "path": "fontawesome.sharp/5.13.0",
+      "hashPath": "fontawesome.sharp.5.13.0.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/18.2.0.47": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-boPxbte2+5zk+NZlhptHK2n8xui1W0P1C4LxFkK+8+YpI4LoFV9QNI6VVEPouTwu041+41WePE3QyQwzA1O3SQ==",
+      "path": "syncfusion.licensing/18.2.0.47",
+      "hashPath": "syncfusion.licensing.18.2.0.47.nupkg.sha512"
+    },
+    "Syncfusion.SfChart.WPF/18.2.0.47": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ftMFUiG5CqEsmFcceKihiGaa05WpUuUDmuoaOYGlDp7pdNA9FQtniyErqbjAIUrjZcXRTSXiwe42bm+Vp124qQ==",
+      "path": "syncfusion.sfchart.wpf/18.2.0.47",
+      "hashPath": "syncfusion.sfchart.wpf.18.2.0.47.nupkg.sha512"
+    }
+  }
 }
