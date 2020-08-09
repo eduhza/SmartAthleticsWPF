@@ -7,12 +7,14 @@
              xmlns:viewmodels="clr-namespace:SmartAthleticsWPF.ViewModels"
              xmlns:commands="clr-namespace:SmartAthleticsWPF.Commands"
              xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
         <viewmodels:LiveGraphViewModel x:Key="LIVviewModel"/>
-        <!--<viewmodels:CalibrationViewModel x:Key="CALviewModel"/>
+        <!--<viewmodels:LiveGraphViewModel x:Key="LIVviewModel"/>
+        <viewmodels:CalibrationViewModel x:Key="CALviewModel"/>
         <viewmodels:SettingsViewModel x:Key="SETviewModel"/>
         <viewmodels:InfoViewModel x:Key="INFviewModel"/>-->
     </UserControl.Resources>
@@ -208,14 +210,19 @@
 
                 <DockPanel Grid.Row="1" Grid.ColumnSpan="2" LastChildFill="True">
                     <Label Content="Porta COM: "></Label>
-                    <ComboBox Margin="0,0,0,15"></ComboBox>
+                    <ComboBox ItemsSource="{Binding Available_COMPorts}"
+                              SelectedValue="{Binding SelectedCOMPort, Mode=TwoWay}"
+                              Margin="0,0,0,15"   />
+
+                    <!--SelectedItem="{Binding SelectedCOMPort, Mode=TwoWay, diag:PresentationTraceSources.TraceLevel=High}"-->
                 </DockPanel>
 
-                <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connect/Disconnect" HorizontalAlignment="Stretch" Margin="5"/>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connect/Disconnect" HorizontalAlignment="Stretch" Margin="5"
+                        Command="{Binding Path=ConnectButtonCommand, Source={StaticResource LIVviewModel}}"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2">
                     <Label Content="Status: "></Label>
-                    <Label Content="Disconected" Foreground="Red" />
+                    <Label Content="{Binding SelectedCOMPort}" Foreground="Red" />
                 </StackPanel>
 
 
@@ -347,7 +354,8 @@
 
                     <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" LastChildFill="True" HorizontalAlignment="Stretch">
                         <Label Content="Periodo: "  VerticalAlignment="Center"/>
-                        <ComboBox Text="30" Background="White"  VerticalAlignment="Center" SelectedIndex="{Binding PeriodSelectedIndex}"> <!--5-->
+                        <ComboBox Text="30" Background="White"  VerticalAlignment="Center" 
+                                  SelectedIndex="{Binding PeriodSelectedIndex}"> <!--5-->
                             <ComboBoxItem Content="100 ms" />
                             <ComboBoxItem Content="500 ms" />
                             <ComboBoxItem Content="1 s" />
@@ -359,7 +367,8 @@
 
                     <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" LastChildFill="True" HorizontalAlignment="Stretch">
                         <Label Content="Amplitude: " VerticalAlignment="Center"/>
-                        <ComboBox Text="30" Background="White" VerticalAlignment="Center" SelectedIndex="{Binding AmplitudeSelectedIndex}"> <!--3-->
+                        <ComboBox Text="30" Background="White" VerticalAlignment="Center" 
+                                  SelectedIndex="{Binding AmplitudeSelectedIndex}"> <!--3-->
                             <ComboBoxItem Content="10"/>
                             <ComboBoxItem Content="100"/>
                             <ComboBoxItem Content="500"/>

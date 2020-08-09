@@ -50,6 +50,10 @@
             "Syncfusion.SfChart.WPF": {
               "target": "Package",
               "version": "[18.2.0.47, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[4.7.0, )"
             }
           },
           "imports": [

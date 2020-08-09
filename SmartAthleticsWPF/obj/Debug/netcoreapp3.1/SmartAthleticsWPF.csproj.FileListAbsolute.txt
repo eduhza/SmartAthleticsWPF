@@ -50,5 +50,13 @@ D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\obj\De
 D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\obj\Debug\netcoreapp3.1\Views\SettingsView.baml
 D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
 D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\Syncfusion.SfChart.WPF.dll
-D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\obj\Debug\netcoreapp3.1\SmartAthleticsWPF.csprojAssemblyReference.cache
 D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\obj\Debug\netcoreapp3.1\SmartAthleticsWPF.csproj.CoreCompileInputs.cache
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\System.IO.Ports.dll
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\System.IO.Ports.Native.so
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\System.IO.Ports.Native.so
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\System.IO.Ports.Native.so
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\System.IO.Ports.Native.dylib
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\linux\lib\netstandard2.0\System.IO.Ports.dll
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\osx\lib\netstandard2.0\System.IO.Ports.dll
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.IO.Ports.dll
+D:\BioRob\Projects\Platforms\Software\SmartAthleticsWPF\SmartAthleticsWPF\obj\Debug\netcoreapp3.1\SmartAthleticsWPF.csprojAssemblyReference.cache

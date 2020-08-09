@@ -14,4 +14,5 @@ namespace SmartAthleticsWPF.Models
         public double XData { get; set; }
         public double YData { get; set; }
     }
+
 }
