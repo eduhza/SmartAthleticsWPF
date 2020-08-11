@@ -4,20 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartAthleticsWPF.Views" 
-             xmlns:viewmodels="clr-namespace:SmartAthleticsWPF.ViewModels"
              xmlns:commands="clr-namespace:SmartAthleticsWPF.Commands"
              xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
-             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
-    <UserControl.Resources>
-        <viewmodels:LiveGraphViewModel x:Key="LIVviewModel"/>
-        <!--<viewmodels:LiveGraphViewModel x:Key="LIVviewModel"/>
-        <viewmodels:CalibrationViewModel x:Key="CALviewModel"/>
-        <viewmodels:SettingsViewModel x:Key="SETviewModel"/>
-        <viewmodels:InfoViewModel x:Key="INFviewModel"/>-->
-    </UserControl.Resources>
 
     <Grid Background="#EDEDED">
         <Grid.ColumnDefinitions>
@@ -51,7 +42,8 @@
                        HorizontalAlignment="Center" 
                        Padding="0,5,0,10" FontSize="22"/>
 
-                <syncfusion:SfChart x:Name="LiveGraphChart" >
+                <syncfusion:SfChart x:Name="LiveGraphChart">
+                    
                     <syncfusion:SfChart.PrimaryAxis>
                         <syncfusion:NumericalAxis Header="Seconds" 
                                           Maximum="{Binding MaxXAxis}"
@@ -212,13 +204,12 @@
                     <Label Content="Porta COM: "></Label>
                     <ComboBox ItemsSource="{Binding Available_COMPorts}"
                               SelectedValue="{Binding SelectedCOMPort, Mode=TwoWay}"
-                              Margin="0,0,0,15"   />
-
-                    <!--SelectedItem="{Binding SelectedCOMPort, Mode=TwoWay, diag:PresentationTraceSources.TraceLevel=High}"-->
+                              Margin="0,0,0,15" >
+                    </ComboBox>
                 </DockPanel>
 
                 <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connect/Disconnect" HorizontalAlignment="Stretch" Margin="5"
-                        Command="{Binding Path=ConnectButtonCommand, Source={StaticResource LIVviewModel}}"/>
+                        Command="{Binding Path=ConnectButtonCommand}"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2">
                     <Label Content="Status: "></Label>
@@ -268,7 +259,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,10"
-                            Content="Click me" Command="{Binding Path=RecordButtonCommand, Source={StaticResource LIVviewModel}}" />
+                            Content="Click me" Command="{Binding Path=RecordButtonCommand}" />
 
                     <Label Content="Record Time (s):" 
                            Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>

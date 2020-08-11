@@ -6,5 +6,9 @@ namespace SmartAthleticsWPF.ViewModels
 {
     public class InfoViewModel : BaseViewModel
     {
+        public InfoViewModel()
+        {
+
+        }
     }
 }

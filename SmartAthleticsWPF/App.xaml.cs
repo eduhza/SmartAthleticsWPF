@@ -15,6 +15,7 @@ namespace SmartAthleticsWPF
     {
         public App()
         {
+
         }
     }
 }

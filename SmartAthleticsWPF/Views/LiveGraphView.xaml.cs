@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using SmartAthleticsWPF.Commands;
 
 namespace SmartAthleticsWPF.Views
 {
@@ -26,6 +27,7 @@ namespace SmartAthleticsWPF.Views
         public LiveGraphView()
         {
             InitializeComponent();
+
             this._vm = new LiveGraphViewModel();
             this.DataContext = this._vm;
 
@@ -34,5 +36,6 @@ namespace SmartAthleticsWPF.Views
             this._vm.COPSuspendNotifiCation = new Action(CopChart.SuspendSeriesNotification);
             this._vm.COPResumeNotification = new Action(CopChart.ResumeSeriesNotification);
         }
+
     }
 }

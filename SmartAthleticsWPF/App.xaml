@@ -5,10 +5,11 @@
              xmlns:views="clr-namespace:SmartAthleticsWPF.Views"
              xmlns:viewmodels="clr-namespace:SmartAthleticsWPF.ViewModels"
              StartupUri="MainWindow.xaml">
+    
+    
     <Application.Resources>
-
-        <DataTemplate DataType="{x:Type viewmodels:LiveGraphViewModel}">
-            <views:LiveGraphView/>
+        <DataTemplate DataType="{x:Type viewmodels:BaseViewModel}"> <!-- ERA PRA SER LIVEGRAPHVIEWMDOEL, FIZ ISSO P USAR SfChart Actions-->
+            <views:LiveGraphView/> <!-- LIVEGRAPHVIEWMDOEL É INICIADO NO CONSTRUTOR DA VIEW-->
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewmodels:CalibrationViewModel}">
@@ -24,4 +25,6 @@
         </DataTemplate>
 
     </Application.Resources>
+       
+    
 </Application>

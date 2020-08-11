@@ -1,22 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "Giv8GBXHhpzSPYlc8rFsJ9N6jVMl/5Q+9BEuIQi0R2MC6e0M6Ho5vvHq7N4W8H1am7MkrgX4HQtgsYIuFS7Mvg==",
+  "dgSpecHash": "i4sOOwRUuj2AE9OI7Tgvt4YEfBP7fiuRqHkl6371QO1Ostm4ZJsv92qYh7MlE7mmClIpUNtmrUUPqpkUAhL/pg==",
   "success": true,
   "projectFilePath": "D:\\BioRob\\Projects\\Platforms\\Software\\SmartAthleticsWPF\\SmartAthleticsWPF\\SmartAthleticsWPF.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\cyotek.circularbuffer\\1.1.0-alpha5\\cyotek.circularbuffer.1.1.0-alpha5.nupkg.sha512",
     "C:\\Users\\EduardoArruda\\.nuget\\packages\\fontawesome.sharp\\5.13.0\\fontawesome.sharp.5.13.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\4.7.0\\runtime.linux-arm.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\4.7.0\\runtime.linux-arm64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\4.7.0\\runtime.linux-x64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.native.system.io.ports\\4.7.0\\runtime.native.system.io.ports.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\4.7.0\\runtime.osx-x64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0-preview.7.20364.11\\microsoft.netcore.platforms.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\microsoft.win32.registry\\5.0.0-preview.7.20364.11\\microsoft.win32.registry.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\5.0.0-preview.7.20364.11\\runtime.linux-arm.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\5.0.0-preview.7.20364.11\\runtime.linux-arm64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\5.0.0-preview.7.20364.11\\runtime.linux-x64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.native.system.io.ports\\5.0.0-preview.7.20364.11\\runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\5.0.0-preview.7.20364.11\\runtime.osx-x64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
     "C:\\Users\\EduardoArruda\\.nuget\\packages\\syncfusion.licensing\\18.2.0.47\\syncfusion.licensing.18.2.0.47.nupkg.sha512",
     "C:\\Users\\EduardoArruda\\.nuget\\packages\\syncfusion.sfchart.wpf\\18.2.0.47\\syncfusion.sfchart.wpf.18.2.0.47.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.io.ports\\4.7.0\\system.io.ports.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.io.ports\\5.0.0-preview.7.20364.11\\system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.security.accesscontrol\\5.0.0-preview.7.20364.11\\system.security.accesscontrol.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\EduardoArruda\\.nuget\\packages\\system.security.principal.windows\\5.0.0-preview.7.20364.11\\system.security.principal.windows.5.0.0-preview.7.20364.11.nupkg.sha512"
   ],
   "logs": []
 }

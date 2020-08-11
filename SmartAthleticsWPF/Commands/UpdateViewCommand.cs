@@ -1,4 +1,5 @@
 ﻿using SmartAthleticsWPF.ViewModels;
+using SmartAthleticsWPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,7 +28,7 @@ namespace SmartAthleticsWPF.Commands
             if (parameter.ToString() == "LiveGraph")
             {
                 //this.viewModel.ChangeView(0);
-                viewModel.SelectedViewModel = new LiveGraphViewModel();
+                viewModel.SelectedViewModel = new BaseViewModel(); //Era p ser LiveGraphViewModel, esta sendo iniciado no construtor do LiveGraphView.
             }
             if (parameter.ToString() == "Calibration")
             {

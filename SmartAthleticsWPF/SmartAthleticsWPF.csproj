@@ -24,9 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Cyotek.CircularBuffer" Version="1.1.0-alpha5" />
     <PackageReference Include="FontAwesome.Sharp" Version="5.13.0" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="18.2.0.47" />
-    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+    <PackageReference Include="System.IO.Ports" Version="5.0.0-preview.7.20364.11" />
   </ItemGroup>
 
   <ItemGroup>

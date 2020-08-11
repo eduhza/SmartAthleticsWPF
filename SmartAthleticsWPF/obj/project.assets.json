@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Cyotek.CircularBuffer/1.1.0-alpha5": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Cyotek.Collections.Generic.CircularBuffer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Cyotek.Collections.Generic.CircularBuffer.dll": {}
+        }
+      },
       "FontAwesome.Sharp/5.13.0": {
         "type": "package",
         "compile": {
@@ -14,7 +23,7 @@
           "Microsoft.WindowsDesktop.App"
         ]
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/5.0.0-preview.7.20364.11": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -23,11 +32,11 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Win32.Registry/4.7.0": {
+      "Microsoft.Win32.Registry/5.0.0-preview.7.20364.11": {
         "type": "package",
         "dependencies": {
-          "System.Security.AccessControl": "4.7.0",
-          "System.Security.Principal.Windows": "4.7.0"
+          "System.Security.AccessControl": "5.0.0-preview.7.20364.11",
+          "System.Security.Principal.Windows": "5.0.0-preview.7.20364.11"
         },
         "compile": {
           "ref/netstandard2.0/_._": {}
@@ -46,46 +55,46 @@
           }
         }
       },
-      "runtime.linux-arm.runtime.native.System.IO.Ports/4.7.0": {
+      "runtime.linux-arm.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "runtimeTargets": {
-          "runtimes/linux-arm/native/System.IO.Ports.Native.so": {
+          "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so": {
             "assetType": "native",
             "rid": "linux-arm"
           }
         }
       },
-      "runtime.linux-arm64.runtime.native.System.IO.Ports/4.7.0": {
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "runtimeTargets": {
-          "runtimes/linux-arm64/native/System.IO.Ports.Native.so": {
+          "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
             "assetType": "native",
             "rid": "linux-arm64"
           }
         }
       },
-      "runtime.linux-x64.runtime.native.System.IO.Ports/4.7.0": {
+      "runtime.linux-x64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "runtimeTargets": {
-          "runtimes/linux-x64/native/System.IO.Ports.Native.so": {
+          "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so": {
             "assetType": "native",
             "rid": "linux-x64"
           }
         }
       },
-      "runtime.native.System.IO.Ports/4.7.0": {
+      "runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "dependencies": {
-          "runtime.linux-arm.runtime.native.System.IO.Ports": "4.7.0",
-          "runtime.linux-arm64.runtime.native.System.IO.Ports": "4.7.0",
-          "runtime.linux-x64.runtime.native.System.IO.Ports": "4.7.0",
-          "runtime.osx-x64.runtime.native.System.IO.Ports": "4.7.0"
+          "runtime.linux-arm.runtime.native.System.IO.Ports": "5.0.0-preview.7.20364.11",
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "5.0.0-preview.7.20364.11",
+          "runtime.linux-x64.runtime.native.System.IO.Ports": "5.0.0-preview.7.20364.11",
+          "runtime.osx-x64.runtime.native.System.IO.Ports": "5.0.0-preview.7.20364.11"
         }
       },
-      "runtime.osx-x64.runtime.native.System.IO.Ports/4.7.0": {
+      "runtime.osx-x64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "runtimeTargets": {
-          "runtimes/osx-x64/native/System.IO.Ports.Native.dylib": {
+          "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib": {
             "assetType": "native",
             "rid": "osx-x64"
           }
@@ -112,11 +121,11 @@
           "lib/netcoreapp3.1/Syncfusion.SfChart.WPF.dll": {}
         }
       },
-      "System.IO.Ports/4.7.0": {
+      "System.IO.Ports/5.0.0-preview.7.20364.11": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Win32.Registry": "4.7.0",
-          "runtime.native.System.IO.Ports": "4.7.0"
+          "Microsoft.Win32.Registry": "5.0.0-preview.7.20364.11",
+          "runtime.native.System.IO.Ports": "5.0.0-preview.7.20364.11"
         },
         "compile": {
           "ref/netstandard2.0/System.IO.Ports.dll": {}
@@ -139,11 +148,11 @@
           }
         }
       },
-      "System.Security.AccessControl/4.7.0": {
+      "System.Security.AccessControl/5.0.0-preview.7.20364.11": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0",
-          "System.Security.Principal.Windows": "4.7.0"
+          "Microsoft.NETCore.Platforms": "5.0.0-preview.7.20364.11",
+          "System.Security.Principal.Windows": "5.0.0-preview.7.20364.11"
         },
         "compile": {
           "ref/netstandard2.0/_._": {}
@@ -158,7 +167,7 @@
           }
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {
+      "System.Security.Principal.Windows/5.0.0-preview.7.20364.11": {
         "type": "package",
         "compile": {
           "ref/netcoreapp3.0/_._": {}
@@ -180,6 +189,28 @@
     }
   },
   "libraries": {
+    "Cyotek.CircularBuffer/1.1.0-alpha5": {
+      "sha512": "xkb7zIFmDouD2nkLLmo+d0uLkpXFYLveiTBSocNNDH5EClupF00/o1PX4x/DWC09wHwHd10DdC4MM/qGUZIiAQ==",
+      "type": "package",
+      "path": "cyotek.circularbuffer/1.1.0-alpha5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cyotek.circularbuffer.1.1.0-alpha5.nupkg.sha512",
+        "cyotek.circularbuffer.nuspec",
+        "icon.png",
+        "lib/net40/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/net452/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/net462/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/net472/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/net48/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/netcoreapp2.1/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/netcoreapp2.2/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/netcoreapp3.1/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/netstandard2.0/Cyotek.Collections.Generic.CircularBuffer.dll",
+        "lib/netstandard2.1/Cyotek.Collections.Generic.CircularBuffer.dll"
+      ]
+    },
     "FontAwesome.Sharp/5.13.0": {
       "sha512": "MGB67DmlCWL2yxj66xFc/mn3oXmr8WgmrCa42U/yKuchK9WRzgID4aTJG4pWXGcCHDYJFm4kGcYg37vV2Rp+/w==",
       "type": "package",
@@ -196,30 +227,32 @@
         "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.1.0": {
-      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+    "Microsoft.NETCore.Platforms/5.0.0-preview.7.20364.11": {
+      "sha512": "wK8YPtEFe3AM5XauQ7Gjnpdqb+k6zoEYrmJ25dg8vUzmblkxTc5SS/yLUFlrGeBrOXvcnv3MtSBSWsPDnUN+gg==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/3.1.0",
+      "path": "microsoft.netcore.platforms/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.5.0.0-preview.7.20364.11.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "Microsoft.Win32.Registry/4.7.0": {
-      "sha512": "KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+    "Microsoft.Win32.Registry/5.0.0-preview.7.20364.11": {
+      "sha512": "P9JBAeKLwOgor/q8LZJSFsNMZkbQDdW3/QMFv8vaxqNSwbh1MuQiU4f0JpA/r1346VRbrgwF2VepTisaJXENFw==",
       "type": "package",
-      "path": "microsoft.win32.registry/4.7.0",
+      "path": "microsoft.win32.registry/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/Microsoft.Win32.Registry.dll",
@@ -228,7 +261,7 @@
         "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
-        "microsoft.win32.registry.4.7.0.nupkg.sha512",
+        "microsoft.win32.registry.5.0.0-preview.7.20364.11.nupkg.sha512",
         "microsoft.win32.registry.nuspec",
         "ref/net46/Microsoft.Win32.Registry.dll",
         "ref/net461/Microsoft.Win32.Registry.dll",
@@ -260,81 +293,86 @@
         "version.txt"
       ]
     },
-    "runtime.linux-arm.runtime.native.System.IO.Ports/4.7.0": {
-      "sha512": "pCaX07mRrO11GfUb+whjn2AJgCofx26slw0sI3XC9v0pEZO8101iK6q4ymZOiI2M4a9sQxLr2LawAEDvF4RNXg==",
+    "runtime.linux-arm.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "Po4XP4HLDkdPUm1cMGzHZnHGGOeGL5byfQuwYkhhoZu55NQRnvYXzdr7X4Iu2TpZq4CUvbYQrVVXf25qRDwsTQ==",
       "type": "package",
-      "path": "runtime.linux-arm.runtime.native.system.io.ports/4.7.0",
+      "path": "runtime.linux-arm.runtime.native.system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-arm.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+        "runtime.linux-arm.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "runtime.linux-arm.runtime.native.system.io.ports.nuspec",
-        "runtimes/linux-arm/native/System.IO.Ports.Native.so",
+        "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "runtime.linux-arm64.runtime.native.System.IO.Ports/4.7.0": {
-      "sha512": "/J6A4bexUUJciGUwrhtzrFW4tIHqoJYlCsz5RudRmqUaqvuG2tjrbn6bEopOFs7CU4gZqAKWcU9pkp180c3DkQ==",
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "jRCMBY9bcBdO7g5Em+XIUWXbPXJ7IJZrEGRihfCqz1iyTdHoa6QTCfK8MsK9GeOUVS6i5YOlD/SA40O/gWMlJA==",
       "type": "package",
-      "path": "runtime.linux-arm64.runtime.native.system.io.ports/4.7.0",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-arm64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+        "runtime.linux-arm64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "runtime.linux-arm64.runtime.native.system.io.ports.nuspec",
-        "runtimes/linux-arm64/native/System.IO.Ports.Native.so",
+        "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "runtime.linux-x64.runtime.native.System.IO.Ports/4.7.0": {
-      "sha512": "aaaiH4ttfkLizo0OKf++5kPN0yxKbgzcyAD3w52Y3YP96aB/M79fm0r06SedXJGv86Iou6ipj3wUQBMFaL8LnQ==",
+    "runtime.linux-x64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "DW8ItOlHVjaecE775x3yL0+qYhptCJnJ1vbvptrgpoCqBmQ3Ck8jOH/Dte15oEFxy9E1gigsj9yjZLhFORcRZA==",
       "type": "package",
-      "path": "runtime.linux-x64.runtime.native.system.io.ports/4.7.0",
+      "path": "runtime.linux-x64.runtime.native.system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.linux-x64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+        "runtime.linux-x64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "runtime.linux-x64.runtime.native.system.io.ports.nuspec",
-        "runtimes/linux-x64/native/System.IO.Ports.Native.so",
+        "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "runtime.native.System.IO.Ports/4.7.0": {
-      "sha512": "yidiZEGEIOyGnRkZvoV6XbeqzEBg9L47PyZNBymLIsu9HHseF98wiOxR6RnHmMqQMTBlc/EONfw4NT3pw0S6YQ==",
+    "runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "IH3C3CVtpgjOYxfkHuGal/k3Gjr1OTAaLBmHqwD2yBzjehZO/Q7bJnAyuqnhVOUuPglNGiBE9Tgj2K6xPUNoHA==",
       "type": "package",
-      "path": "runtime.native.system.io.ports/4.7.0",
+      "path": "runtime.native.system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+        "runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "runtime.native.system.io.ports.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "runtime.osx-x64.runtime.native.System.IO.Ports/4.7.0": {
-      "sha512": "c1h87v6gopjfeAu3WhVGguUhzCdpZFqX8oXrevO1ciuH4g/mFrxnzlo5POlp+TtZdQ1i8yu0ZzBMKbmX2bJJ0g==",
+    "runtime.osx-x64.runtime.native.System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "vDxwR3ADYtY8ROreq1evGH/wQezmwLU0i14dy6HbNOrFmgQszObsL0Gr3DeaC1NinZ2REugGbrkkaCiuLmZEFA==",
       "type": "package",
-      "path": "runtime.osx-x64.runtime.native.system.io.ports/4.7.0",
+      "path": "runtime.osx-x64.runtime.native.system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.osx-x64.runtime.native.system.io.ports.4.7.0.nupkg.sha512",
+        "runtime.osx-x64.runtime.native.system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "runtime.osx-x64.runtime.native.system.io.ports.nuspec",
-        "runtimes/osx-x64/native/System.IO.Ports.Native.dylib",
+        "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -404,13 +442,14 @@
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
-    "System.IO.Ports/4.7.0": {
-      "sha512": "tNHiZcdskfRpxU7LBBlA69YYgBqWMBE/JDdmrEIDa4iw944VK1u4+B0FeSls1FUm+Pm4X/Fl0fSGqi8MDhb8/Q==",
+    "System.IO.Ports/5.0.0-preview.7.20364.11": {
+      "sha512": "6unkGW9RJOs8oBDc/wM980ldN+5VmV4n68bdkc6bDtTZC5ZeOjLqcDAArVHrnuU+OqAXz4TC86Kmk+Z2QcffOQ==",
       "type": "package",
-      "path": "system.io.ports/4.7.0",
+      "path": "system.io.ports/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/System.IO.Ports.dll",
@@ -419,9 +458,7 @@
         "lib/netstandard2.0/System.IO.Ports.xml",
         "lib/uap10.0.16299/_._",
         "ref/net461/System.IO.Ports.dll",
-        "ref/net461/System.IO.Ports.xml",
         "ref/netstandard2.0/System.IO.Ports.dll",
-        "ref/netstandard2.0/System.IO.Ports.xml",
         "ref/uap10.0.16299/_._",
         "runtimes/linux/lib/netstandard2.0/System.IO.Ports.dll",
         "runtimes/linux/lib/netstandard2.0/System.IO.Ports.xml",
@@ -432,19 +469,20 @@
         "runtimes/win/lib/netstandard2.0/System.IO.Ports.dll",
         "runtimes/win/lib/netstandard2.0/System.IO.Ports.xml",
         "runtimes/win/lib/uap10.0.16299/_._",
-        "system.io.ports.4.7.0.nupkg.sha512",
+        "system.io.ports.5.0.0-preview.7.20364.11.nupkg.sha512",
         "system.io.ports.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Security.AccessControl/4.7.0": {
-      "sha512": "JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+    "System.Security.AccessControl/5.0.0-preview.7.20364.11": {
+      "sha512": "/JWmXYrDPXVN2317R7kZWt9S5dx2mjKZ0s+Zs1+MGRn6utT+oYpKUEVXoWLjqIWX0wUNu2bwLjudaBirf7J6eA==",
       "type": "package",
-      "path": "system.security.accesscontrol/4.7.0",
+      "path": "system.security.accesscontrol/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.AccessControl.dll",
@@ -478,19 +516,20 @@
         "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.xml",
         "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
         "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.accesscontrol.4.7.0.nupkg.sha512",
+        "system.security.accesscontrol.5.0.0-preview.7.20364.11.nupkg.sha512",
         "system.security.accesscontrol.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Security.Principal.Windows/4.7.0": {
-      "sha512": "ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+    "System.Security.Principal.Windows/5.0.0-preview.7.20364.11": {
+      "sha512": "UAuPpgLE1u7Aflefr0vyfmkzfoTDHtHFtQe8dArZicLKSfKRakf1gOE/D4xTpLmUm55LBqu3gEBk9Hq3rHpaLw==",
       "type": "package",
-      "path": "system.security.principal.windows/4.7.0",
+      "path": "system.security.principal.windows/5.0.0-preview.7.20364.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.Principal.Windows.dll",
@@ -532,7 +571,7 @@
         "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
         "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.principal.windows.4.7.0.nupkg.sha512",
+        "system.security.principal.windows.5.0.0-preview.7.20364.11.nupkg.sha512",
         "system.security.principal.windows.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -541,9 +580,10 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Cyotek.CircularBuffer >= 1.1.0-alpha5",
       "FontAwesome.Sharp >= 5.13.0",
       "Syncfusion.SfChart.WPF >= 18.2.0.47",
-      "System.IO.Ports >= 4.7.0"
+      "System.IO.Ports >= 5.0.0-preview.7.20364.11"
     ]
   },
   "packageFolders": {
@@ -590,6 +630,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Cyotek.CircularBuffer": {
+            "target": "Package",
+            "version": "[1.1.0-alpha5, )"
+          },
           "FontAwesome.Sharp": {
             "target": "Package",
             "version": "[5.13.0, )"
@@ -600,7 +644,7 @@
           },
           "System.IO.Ports": {
             "target": "Package",
-            "version": "[4.7.0, )"
+            "version": "[5.0.0-preview.7.20364.11, )"
           }
         },
         "imports": [

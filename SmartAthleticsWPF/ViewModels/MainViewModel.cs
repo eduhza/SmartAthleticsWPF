@@ -10,12 +10,6 @@ namespace SmartAthleticsWPF.ViewModels
     /*  Control the navigation of the views */
     public class MainViewModel : BaseViewModel
     {
-        public MainViewModel()
-        {
-            UpdateViewCommand = new UpdateViewCommand(this);
-            SelectedViewModel = new LiveGraphViewModel();
-            //RegisterViews();
-        }
 
         private BaseViewModel _selectedViewModel;// = new LiveGraphViewModel(); //STARTS AT LIVEGRAPH VIEW
 
@@ -27,6 +21,13 @@ namespace SmartAthleticsWPF.ViewModels
 
         public ICommand UpdateViewCommand { get; set; }
 
+        public MainViewModel()
+        {
+            UpdateViewCommand = new UpdateViewCommand(this);
+            SelectedViewModel = new BaseViewModel();
+            //SelectedViewModel = new LiveGraphViewModel();
+            //RegisterViews();
+        }
 
         //internal void ChangeView(int i)
         //{
