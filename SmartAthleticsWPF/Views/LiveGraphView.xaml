@@ -10,7 +10,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Background="#EDEDED">
+    <!--#EDEDED #C5BDDC #523B97 #362764-->
+    <Grid Background="#FAFAFA">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.01*"/>
             <ColumnDefinition Width="1*"/>
@@ -115,7 +116,8 @@
                                     VerticalContentAlignment="Stretch" 
                                     HorizontalAlignment="Center"
                                     AreaBorderThickness="5"
-                                    AreaBorderBrush="#523B97">
+                                    AreaBorderBrush="#362764">
+                    <!--523B97-->
                     
                     <syncfusion:SfChart.PrimaryAxis>
                         <syncfusion:NumericalAxis Minimum="-20" 
@@ -152,14 +154,14 @@
 
                     <syncfusion:SfChart.Annotations>
                         <syncfusion:LineAnnotation  X1="00"  X2="00"  Y1="-30" Y2="30"  
-                                                    Stroke="DimGray" StrokeThickness="2" StrokeDashArray="4"/>
+                                                    Stroke="#362764" StrokeThickness="2" StrokeDashArray="4"/>
                         <syncfusion:LineAnnotation  X1="-20" X2="20"  Y1="00"  Y2="0"   
-                                                    Stroke="DimGray" StrokeThickness="2" StrokeDashArray="4"/>
+                                                    Stroke="#362764" StrokeThickness="2" StrokeDashArray="4"/>
                     </syncfusion:SfChart.Annotations>
                     <syncfusion:SfChart.Series>
                         <syncfusion:FastScatterBitmapSeries ItemsSource="{Binding COP_DOT}" 
                                                   XBindingPath="XData" YBindingPath="YData" 
-                                                  Interior="Red" ScatterHeight="20" ScatterWidth="20"/>
+                                                  Interior="Red" ScatterHeight="10" ScatterWidth="10"/>
                     </syncfusion:SfChart.Series>
 
                 </syncfusion:SfChart>

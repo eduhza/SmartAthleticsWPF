@@ -297,6 +297,7 @@ namespace SmartAthleticsWPF.ViewModels
                             {
                                 Serial_thread = new Thread(new ThreadStart(Serial_bgWorker_DoWork));
                                 Serial_thread.Priority = ThreadPriority.Highest;
+                                Serial_thread.IsBackground = true;
 
                                 await Task.Run(() => Clear_Serial_Buffer());
                                 ADS131Model.Process = READING_1Ksps;
@@ -761,10 +762,10 @@ namespace SmartAthleticsWPF.ViewModels
                     CircularDataBuffer[nSensor].Put(nSamples); //Save sample index
                 }
             }
-            PesoKg = nSamples.ToString();
+            //PesoKg = nSamples.ToString();
             if (nErrorSample > 0)
             {
-                PesoNw = nErrorSample.ToString();
+                //PesoNw = nErrorSample.ToString();
                 nErrorSample = 0;
             }
         }
@@ -872,8 +873,6 @@ namespace SmartAthleticsWPF.ViewModels
                             }
                         }
                     }
-
-
                 }
                 Thread.Sleep(25); 
             }
@@ -904,21 +903,21 @@ namespace SmartAthleticsWPF.ViewModels
                         ObservableCollection<LiveGraphModel> TempData = new ObservableCollection<LiveGraphModel>();
                         for(int j = 0; j < vs[i].Length; j = j + 3)
                         {
+                            //double YMean = 0;
+                            //if (j + 3 > vs[i].Length)
+                            //{
+                            //    YMean = vs[i][j..vs[i].Length].Sum() / (vs[i].Length - j);
+                            //}
+                            //else 
+                            //    YMean = vs[i][j..(j + 3)].Sum() / 3;
+
                             TempData.Add(new LiveGraphModel()
                             {
                                 XData = indexTemp[j],
-                                YData = vs[i][j]
-                            }); ;
+                                YData = vs[i][j]//YMean//
+                            });
                         }
-                        //foreach (int a in vs[i])
-                        //{
-                        //    TempData.Add(new LiveGraphModel()
-                        //    {
-                        //        XData = indexTemp[k],
-                        //        YData = a
-                        //    });
-                        //    k++;
-                        //}
+
                         switch (i)
                         {
                             case 0:
@@ -946,11 +945,15 @@ namespace SmartAthleticsWPF.ViewModels
                     {
                         MaxXAxis = FyCircularBuffer.Last().XData;
                         MinXAxis = MaxXAxis - 30000;
-                        //PesoKg = FyCircularBuffer.Last().YData.ToString("#0.000");
-                        //PesoNw = FyCircularBuffer.Last().YData.ToString("#0.000");
+                        PesoKg = (FyCircularBuffer.Last().YData/1000).ToString("#0.000");
+                        PesoNw = (FyCircularBuffer.Last().YData/100).ToString("#0.000");
 
                         ObservableCollection<COPGraphModel> TempCOP = new ObservableCollection<COPGraphModel>();
-                        TempCOP.Add(new COPGraphModel() { XData = rnd.Next(-30, 30), YData = rnd.Next(-20, 20) });
+                        TempCOP.Add(new COPGraphModel() 
+                        { 
+                            XData = (MxCircularBuffer.Last().YData / FyCircularBuffer.Last().YData), 
+                            YData = (MzCircularBuffer.Last().YData / FyCircularBuffer.Last().YData)
+                        });
                         COP_DOT = TempCOP;
                     }
 

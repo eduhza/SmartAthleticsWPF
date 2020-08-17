@@ -331,8 +331,8 @@
 
 
         </Grid>
-
-        <Grid Background="#523B97"
+        <!--523B97-->
+        <Grid Background="#362764" 
               Height="40" 
               DockPanel.Dock="Top" MouseDown="Grid_MouseDown">
             <Grid.ColumnDefinitions>

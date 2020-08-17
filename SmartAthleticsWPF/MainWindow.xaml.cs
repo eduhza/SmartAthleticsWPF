@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.IO.Ports;
 
 namespace SmartAthleticsWPF
 {
@@ -31,8 +32,19 @@ namespace SmartAthleticsWPF
             DataContext = new MainViewModel();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            //string[] serialPorts = SerialPort.GetPortNames();
+            //foreach (var comPort in serialPorts)
+            //{
+            //    SerialPort serialPort = new SerialPort();
+            //    serialPort.PortName = comPort;
+            //    if (serialPort.IsOpen)
+            //        serialPort.Close();
+            //    await Task.Delay(100);
+            //}
+                
+
             Close();
         }
 
