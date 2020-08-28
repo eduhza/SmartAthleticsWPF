@@ -28,7 +28,7 @@ namespace SmartAthleticsWPF.Commands
             if (parameter.ToString() == "LiveGraph")
             {
                 //this.viewModel.ChangeView(0);
-                viewModel.SelectedViewModel = new BaseViewModel(); //Era p ser LiveGraphViewModel, esta sendo iniciado no construtor do LiveGraphView.
+                viewModel.SelectedViewModel = new LiveGraphViewModel(); //Era p ser LiveGraphViewModel, esta sendo iniciado no construtor do LiveGraphView.
             }
             if (parameter.ToString() == "Calibration")
             {

@@ -8,8 +8,8 @@
     
     
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:BaseViewModel}"> <!-- ERA PRA SER LIVEGRAPHVIEWMDOEL, FIZ ISSO P USAR SfChart Actions-->
-            <views:LiveGraphView/> <!-- LIVEGRAPHVIEWMDOEL É INICIADO NO CONSTRUTOR DA VIEW-->
+        <DataTemplate DataType="{x:Type viewmodels:LiveGraphViewModel}"> 
+            <views:LiveGraphView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewmodels:CalibrationViewModel}">

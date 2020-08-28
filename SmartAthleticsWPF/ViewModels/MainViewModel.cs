@@ -24,8 +24,7 @@ namespace SmartAthleticsWPF.ViewModels
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
-            SelectedViewModel = new BaseViewModel();
-            //SelectedViewModel = new LiveGraphViewModel();
+            SelectedViewModel = new LiveGraphViewModel();
             //RegisterViews();
         }
 

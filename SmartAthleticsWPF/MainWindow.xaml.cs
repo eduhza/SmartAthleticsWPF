@@ -34,17 +34,6 @@ namespace SmartAthleticsWPF
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            //string[] serialPorts = SerialPort.GetPortNames();
-            //foreach (var comPort in serialPorts)
-            //{
-            //    SerialPort serialPort = new SerialPort();
-            //    serialPort.PortName = comPort;
-            //    if (serialPort.IsOpen)
-            //        serialPort.Close();
-            //    await Task.Delay(100);
-            //}
-                
-
             Close();
         }
 

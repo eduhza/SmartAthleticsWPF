@@ -19,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.IO.Ports;
+using System.Diagnostics;
 
 namespace SmartAthleticsWPF.ViewModels
 {
@@ -158,6 +159,7 @@ namespace SmartAthleticsWPF.ViewModels
 
         public RecordButtonCommand RecordButtonCommand { get; set; }
         public ConnectButtonCommand ConnectButtonCommand { get; set; }
+        public CloseButtonCommand CloseButtonCommand { get; set; }
         public Action LiveGraphSuspendNotifiCation { get; set; }
         public Action LiveGraphResumeNotification { get; set; }
         public Action COPSuspendNotifiCation { get; set; }
@@ -244,6 +246,19 @@ namespace SmartAthleticsWPF.ViewModels
             CircularBuffer = new ObservableCollection<LiveGraphModel>[6];
             Available_COMPorts = new ObservableCollection<string>();
             MySerial = new SerialPort();
+            ADS131Model.Process = IDLE_MODE;
+        }
+
+        public void CloseButton()
+        {
+            if (MySerial.IsOpen)
+            {
+                MySerial.Close();
+            }
+            else
+            {
+                Connect_Click();
+            }
         }
 
         public async void ConnectButton()
@@ -297,6 +312,7 @@ namespace SmartAthleticsWPF.ViewModels
                             {
                                 Serial_thread = new Thread(new ThreadStart(Serial_bgWorker_DoWork));
                                 Serial_thread.Priority = ThreadPriority.Highest;
+                                Serial_thread.Name = "serialThread";
                                 Serial_thread.IsBackground = true;
 
                                 await Task.Run(() => Clear_Serial_Buffer());
@@ -322,6 +338,7 @@ namespace SmartAthleticsWPF.ViewModels
                         MySerial.Close();
                         Connect_Click();
                     }
+
                 }
             }
         }
@@ -878,6 +895,8 @@ namespace SmartAthleticsWPF.ViewModels
             }
         }
 
+
+        List<double> FyMean = new List<double>();
         private void UpdatePlotBuffer()
         {
             LiveGraphSuspendNotifiCation?.Invoke();
@@ -888,13 +907,13 @@ namespace SmartAthleticsWPF.ViewModels
                 {
 
 
-                    List<int[]> vs = new List<int[]>();
-                    vs.Add(CircularDataBuffer[0].ToArray());
-                    vs.Add(CircularDataBuffer[1].ToArray());
-                    vs.Add(CircularDataBuffer[2].ToArray());
-                    vs.Add(CircularDataBuffer[3].ToArray());
-                    vs.Add(CircularDataBuffer[4].ToArray());
-                    vs.Add(CircularDataBuffer[5].ToArray());
+                    List<double[]> vs = new List<double[]>();
+                    vs.Add(Data_Conversion(CircularDataBuffer[0].ToArray(),0));
+                    vs.Add(Data_Conversion(CircularDataBuffer[1].ToArray(),1));
+                    vs.Add(Data_Conversion(CircularDataBuffer[2].ToArray(),2));
+                    vs.Add(Data_Conversion(CircularDataBuffer[3].ToArray(),3));
+                    vs.Add(Data_Conversion(CircularDataBuffer[4].ToArray(),4));
+                    vs.Add(Data_Conversion(CircularDataBuffer[5].ToArray(),5));
                     int[] indexTemp = CircularDataBuffer[6].ToArray();
 
                     for (int i = 0; i < nSensor; i++)
@@ -945,8 +964,21 @@ namespace SmartAthleticsWPF.ViewModels
                     {
                         MaxXAxis = FyCircularBuffer.Last().XData;
                         MinXAxis = MaxXAxis - 30000;
-                        PesoKg = (FyCircularBuffer.Last().YData/1000).ToString("#0.000");
-                        PesoNw = (FyCircularBuffer.Last().YData/100).ToString("#0.000");
+
+                        int MeanSize = 1000;
+                        if (vs[0].Length > MeanSize)
+                        {
+                            FyMean.Add(vs[0].Skip(vs[0].Length - MeanSize).Sum() / MeanSize);
+                            if (FyMean.Count >= 1000)
+                                FyMean.RemoveAt(0);
+                            PesoKg = FyMean.Last().ToString("#0.000");
+                            PesoNw = FyCircularBuffer.Last().YData.ToString("#0.000");
+                        }
+
+
+
+                        //PesoKg = (FyCircularBuffer.Last().YData).ToString("#0.000");
+                        //PesoNw = (FyCircularBuffer.Last().YData/1000).ToString("#0.000");
 
                         ObservableCollection<COPGraphModel> TempCOP = new ObservableCollection<COPGraphModel>();
                         TempCOP.Add(new COPGraphModel() 
@@ -963,7 +995,15 @@ namespace SmartAthleticsWPF.ViewModels
             LiveGraphResumeNotification?.Invoke();
         }
 
-
+        double[] Data_Conversion(int[] dataBits, int ch)
+        {
+            double[] dataKg = new double[dataBits.Length];
+            for (int i = 0; i < dataBits.Count(); i++)
+            {
+                dataKg[i] = (double)dataBits[i] * ADS131Model.CH_Const[ch]; // [Kg] or [Kg*m]
+            }
+            return dataKg;
+        }
 
 
         private void PopulateData(int num)

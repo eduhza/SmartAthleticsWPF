@@ -332,6 +332,7 @@
 
         </Grid>
         <!--523B97-->
+        
         <Grid Background="#362764" 
               Height="40" 
               DockPanel.Dock="Top" MouseDown="Grid_MouseDown">
@@ -352,7 +353,9 @@
                     Width="40" 
                     Height="40" 
                     Background="Transparent" 
-                    BorderThickness="0" Click="Button_Click_1">
+                    BorderThickness="0" 
+                    Click="Button_Click_1" >
+                <!--Command="{Binding DataContext.CloseButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}"-->
                 <Button.Content>
                     <fa:IconBlock Icon="WindowMinimize"
                                   Foreground="White"
